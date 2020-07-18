@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class References
 {
-    public static PlayerBehavior thePlayer;
+    public static GameObject thePlayer;
 }

@@ -15,6 +15,7 @@ public class PlayerBehavior : MonoBehaviour
     void Start()
     {
         secondsSinceFire = 0.0f;
+        References.thePlayer = gameObject;
     }
 
     // Update is called once per frame

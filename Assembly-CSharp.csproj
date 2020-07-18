@@ -65,7 +65,9 @@
   <ItemGroup>
     <Compile Include="Assets\BulletBehevior.cs" />
     <Compile Include="Assets\EnemyBehavior.cs" />
+    <Compile Include="Assets\HealthSystem.cs" />
     <Compile Include="Assets\PlayerBehavior.cs" />
+    <Compile Include="Assets\References.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Programowanie/2019.4.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

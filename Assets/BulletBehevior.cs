@@ -6,6 +6,7 @@ public class BulletBehevior : MonoBehaviour
 {
     public float bulletSpeed;
     public float lifeTime;
+    public float damageInterval;
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +37,12 @@ public class BulletBehevior : MonoBehaviour
 
         if (theirGameObject.GetComponent<EnemyBehavior>() != null)
         {
-            Destroy(theirGameObject);
-            Destroy(gameObject);
+            HealthSystem theirHealthSystem = theirGameObject.GetComponent<HealthSystem>();
+            if (theirHealthSystem != null)
+            {
+                theirHealthSystem.TakeDamage(damageInterval);
+                Destroy(gameObject);
+            }
         }
     }
 }
