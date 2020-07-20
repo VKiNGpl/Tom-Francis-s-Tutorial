@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  fireRate: 5
+  fireRate: 10
   bulletObject: {fileID: 8101877449578460058, guid: 17da3129f4ec8b344b840762d88d1cd3,
     type: 3}
 --- !u!114 &5879176506978239628
@@ -140,6 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d03647e362a6b438ed9c9109b3ff60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHealth: 100
   healthBarPrefab: {fileID: 4441254728188282033, guid: 28773f57a1691c745805e9056fd7f709,
     type: 3}

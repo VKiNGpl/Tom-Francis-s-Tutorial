@@ -11,6 +11,7 @@ public class HealthSystem : MonoBehaviour
     float currentHealth;
 
     public GameObject healthBarPrefab;
+    public GameObject deathEffectPrefab;
 
     HealthBarBehavior myHealthBar;
 
@@ -34,6 +35,7 @@ public class HealthSystem : MonoBehaviour
 
     private void OnDestroy()
     {
+        // Don't create anything in the ondestroy event. It's only for cleaning up after the object.
         if (myHealthBar != null)
         {
             Destroy(myHealthBar.gameObject);
@@ -46,6 +48,10 @@ public class HealthSystem : MonoBehaviour
 
         if (currentHealth <= 0.0f)
         {
+            if (deathEffectPrefab != null)
+            {
+                Instantiate(deathEffectPrefab, transform.position, transform.rotation);
+            }
             Destroy(gameObject);
         }
     }

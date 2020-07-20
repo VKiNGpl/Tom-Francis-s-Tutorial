@@ -144,3 +144,5 @@ MonoBehaviour:
   maxHealth: 5
   healthBarPrefab: {fileID: 4441254728188282033, guid: 28773f57a1691c745805e9056fd7f709,
     type: 3}
+  deathEffectPrefab: {fileID: 8144668952622484735, guid: 6e36228360433da4d98d09f8f99f23f1,
+    type: 3}
