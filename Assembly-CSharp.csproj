@@ -64,7 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BulletBehevior.cs" />
+    <Compile Include="Assets\CanvasBehavior.cs" />
     <Compile Include="Assets\EnemyBehavior.cs" />
+    <Compile Include="Assets\HealthBarBehavior.cs" />
     <Compile Include="Assets\HealthSystem.cs" />
     <Compile Include="Assets\PlayerBehavior.cs" />
     <Compile Include="Assets\References.cs" />
