@@ -19,7 +19,7 @@ public class EnemySpawnerBehavior : MonoBehaviour
     // Fixed update happens the same number of times for all players, so it's a good place for gameplay critical updates.
     private void FixedUpdate()
     {
-        secondsSinceLastSpawn += Time.fixedDeltaTime;
+        secondsSinceLastSpawn += Time.deltaTime;
 
         if (secondsSinceLastSpawn >= secondsBetweenSpawns)
         {

@@ -5,16 +5,12 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     public float speed;
-    public float fireRate;
 
-    float secondsSinceFire;
-
-    public GameObject bulletObject;
+    public WeaponBehavior myWeapon;
     
     // Start is called before the first frame update
     void Start()
     {
-        secondsSinceFire = 0.0f;
         References.thePlayer = gameObject;
     }
 
@@ -38,12 +34,11 @@ public class PlayerBehavior : MonoBehaviour
         transform.LookAt(lookAtPosition);      // face new position  
 
         // Left click to fire
-        secondsSinceFire += Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && secondsSinceFire >= 1.0f / fireRate)
+        if (Input.GetButton("Fire1"))
         {
-            secondsSinceFire = 0.0f;
-            Instantiate(bulletObject, transform.position + transform.forward, Quaternion.LookRotation(transform.forward));
+            // Fire weapon
+            myWeapon.Fire(cursorPosition);
         }
     }
 }

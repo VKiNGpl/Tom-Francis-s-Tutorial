@@ -17,7 +17,7 @@ public class ExplosionBehavior : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        secondsSinceAppear += Time.fixedDeltaTime;
+        secondsSinceAppear += Time.deltaTime;
 
         float lifeFraction = secondsSinceAppear / secondsToDisappear;
         Vector3 maxScale = Vector3.one * 5;

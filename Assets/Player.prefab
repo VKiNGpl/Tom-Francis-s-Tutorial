@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3193678845372983394}
   - component: {fileID: 463688616870962882}
   - component: {fileID: 5879176506978239628}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,9 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  fireRate: 10
-  bulletObject: {fileID: 8101877449578460058, guid: 17da3129f4ec8b344b840762d88d1cd3,
-    type: 3}
+  myWeapon: {fileID: 0}
 --- !u!114 &5879176506978239628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,4 +140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthBarPrefab: {fileID: 4441254728188282033, guid: 28773f57a1691c745805e9056fd7f709,
+    type: 3}
+  deathEffectPrefab: {fileID: 8144668952622484735, guid: 6e36228360433da4d98d09f8f99f23f1,
     type: 3}

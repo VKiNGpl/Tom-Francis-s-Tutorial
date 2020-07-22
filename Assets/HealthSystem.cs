@@ -44,15 +44,19 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(float damageReceived)
     {
-        currentHealth -= damageReceived;
 
-        if (currentHealth <= 0.0f)
+        if (currentHealth > 0)
         {
-            if (deathEffectPrefab != null)
+            currentHealth -= damageReceived;
+
+            if (currentHealth <= 0.0f)
             {
-                Instantiate(deathEffectPrefab, transform.position, transform.rotation);
+                if (deathEffectPrefab != null)
+                {
+                    Instantiate(deathEffectPrefab, transform.position, transform.rotation);
+                }
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
     }
 }
