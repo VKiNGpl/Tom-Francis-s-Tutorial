@@ -5,13 +5,15 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     public float speed;
+    public int selectedWeaponIndex;
 
-    public WeaponBehavior myWeapon;
+    public List<WeaponBehavior> weapons = new List<WeaponBehavior>();
     
     // Start is called before the first frame update
     void Start()
     {
         References.thePlayer = gameObject;
+        selectedWeaponIndex = 0;
     }
 
     // Update is called once per frame
@@ -35,10 +37,47 @@ public class PlayerBehavior : MonoBehaviour
 
         // Left click to fire
 
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && weapons.Count > 0)
         {
             // Fire weapon
-            myWeapon.Fire(cursorPosition);
+            weapons[selectedWeaponIndex].Fire(cursorPosition);
         }
+        
+        if (Input.GetButtonDown("Fire2") && weapons.Count > 0)
+        {
+            // change weapon
+            ChangeWeaponIndex(selectedWeaponIndex + 1);
+            
+        }
+    }
+
+    private void ChangeWeaponIndex(int index)
+    {
+        selectedWeaponIndex = index % weapons.Count;
+
+        for (int i = 0; i < weapons.Count; i++)
+        {
+            if (i != selectedWeaponIndex)
+            {
+                weapons[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                weapons[i].gameObject.SetActive(true);
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        WeaponBehavior theirWeapon = other.GetComponentInParent<WeaponBehavior>();
+        if (theirWeapon != null)
+        {
+            weapons.Add(theirWeapon);
+            theirWeapon.transform.position = transform.position;
+            theirWeapon.transform.rotation = transform.rotation;
+            theirWeapon.transform.SetParent(transform);
+            ChangeWeaponIndex(weapons.Count - 1);
+        }    
     }
 }

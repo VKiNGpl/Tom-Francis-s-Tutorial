@@ -28,18 +28,20 @@ public class WeaponBehavior : MonoBehaviour
 
     public void Fire(Vector3 targetPosition)
     {
+        float inaccuracy = Vector3.Distance(transform.position, targetPosition) / accuracy;
+        Vector3 targetOffset = targetPosition;
+
         if (Input.GetButton("Fire1") && secondsSinceFire >= 1.0f / fireRate)
         {
             for (int i = 0; i < ammoBurn; i++)
             {
                 GameObject newBullet = Instantiate(bulletObject, transform.position + transform.forward, Quaternion.LookRotation(transform.forward));
-                float inaccuracy = Vector3.Distance(transform.position, targetPosition) / accuracy;
-
+                
                 // Offset target position by a random amount per accuracy value
-                targetPosition.x += Random.Range(-inaccuracy, inaccuracy);
-                targetPosition.z += Random.Range(-inaccuracy, inaccuracy);
+                targetOffset.x += Random.Range(-inaccuracy, inaccuracy);
+                targetOffset.z += Random.Range(-inaccuracy, inaccuracy);
 
-                newBullet.transform.LookAt(targetPosition);
+                newBullet.transform.LookAt(targetOffset);
 
                 secondsSinceFire = 0.0f;
 
