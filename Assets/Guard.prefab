@@ -101,7 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3223880907299034478}
-  - component: {fileID: 3223880907299034477}
+  - component: {fileID: -1245824485322839141}
   - component: {fileID: 3223880907299034476}
   - component: {fileID: 3223880907299034475}
   m_Layer: 0
@@ -127,7 +127,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3223880907299034477
+--- !u!114 &-1245824485322839141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,15 +136,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3223880907299034474}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba050e902ffeb44ebf28f5e6a213e5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 78bf22835059df7478ba5b13462bfd4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  turnSpeed: 1
   spawnRate: 0
   damageInterval: 1
-  damageRate: 1
-  visionRange: 10
+  damageRate: 2
+  turnSpeed: 1
+  visionRange: 9
   visionConeAngle: 45
   playerSpotted: 0
   myLight: {fileID: 3223880907082831253}
@@ -163,7 +163,8 @@ MonoBehaviour:
   maxHealth: 10
   healthBarPrefab: {fileID: 4441254728188282033, guid: 28773f57a1691c745805e9056fd7f709,
     type: 3}
-  deathEffectPrefab: {fileID: 0}
+  deathEffectPrefab: {fileID: 8144668952622484735, guid: 6e36228360433da4d98d09f8f99f23f1,
+    type: 3}
 --- !u!54 &3223880907299034475
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9005a1ceb76ebc0409823312fe633187, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

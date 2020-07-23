@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a90d472bdbdaee443a5fa47e693e823d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,3 +112,4 @@ MonoBehaviour:
   bigEnemyPrefab: {fileID: 7338790996103807209, guid: 8910364d6fa8a164f80e0d887159be98,
     type: 3}
   secondsBetweenSpawns: 5
+  isActive: 0

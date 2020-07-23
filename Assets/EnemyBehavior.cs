@@ -5,62 +5,42 @@ using UnityEngine;
 public class EnemyBehavior : MonoBehaviour
 {
     public float speed;
-    public float turnSpeed;
     public float spawnRate;
     public float damageInterval;
     public float damageRate;
-    public float visionRange;
-    public float visionConeAngle;
-    public bool playerSpotted;
-    public Light myLight;
 
     float secondsSinceSpawn;
 
-    Rigidbody ourRigidbody;
+    protected Rigidbody ourRigidbody;
+
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         secondsSinceSpawn = 0.0f;
-        playerSpotted = false;
-        myLight.color = Color.white;
         ourRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        secondsSinceSpawn += Time.deltaTime;
+        ChasePlayer();
+    }
 
+    protected void ChasePlayer()
+    {
         if (References.thePlayer != null)
         {
             Vector3 playerPosition = References.thePlayer.transform.position;
             Vector3 vectorToPlayer = playerPosition - transform.position;
-
-            if (playerSpotted)
-            {
-                //Follow the player
-                
-                ourRigidbody.velocity = vectorToPlayer.normalized * speed;
-                Vector3 playerPositionatOurHeight = new Vector3(playerPosition.x, transform.position.y, playerPosition.z);
-                transform.LookAt(playerPositionatOurHeight);
-                myLight.color = Color.red;
-            }
-            else
-            {
-                //Rotate
-                Vector3 lateralOffset = transform.right * Time.deltaTime * turnSpeed;
-                transform.LookAt(transform.position + transform.forward + lateralOffset);
-                ourRigidbody.velocity = transform.forward * speed;
-                //Check if player is in vision cone
-                if (Vector3.Distance(transform.position, playerPosition) <= visionRange)
-                {
-                    if (Vector3.Angle(transform.forward, vectorToPlayer) <= visionConeAngle)
-                    {
-                        playerSpotted = true;
-                    }
-                }
-            }
+            ourRigidbody.velocity = vectorToPlayer.normalized * speed;
+            Vector3 playerPositionAtOurHeight = new Vector3(playerPosition.x, transform.position.y, playerPosition.z);
+            transform.LookAt(playerPositionAtOurHeight);
         }
+    }
+
+    protected void SpawnEnemyCopy()
+    {
+        secondsSinceSpawn += Time.deltaTime;
 
         if (secondsSinceSpawn >= spawnRate && spawnRate != 0)
         {
@@ -69,7 +49,7 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision thisCollision)
+    protected void OnCollisionEnter(Collision thisCollision)
     {
         if (thisCollision.gameObject != null)
         {

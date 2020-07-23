@@ -8,7 +8,14 @@ public class EnemySpawnerBehavior : MonoBehaviour
     public GameObject bigEnemyPrefab;
 
     public float secondsBetweenSpawns;
+    public bool isActive;
+
     float secondsSinceLastSpawn;
+
+    private void Awake()
+    {
+        References.spawner = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +28,7 @@ public class EnemySpawnerBehavior : MonoBehaviour
     {
         secondsSinceLastSpawn += Time.deltaTime;
 
-        if (secondsSinceLastSpawn >= secondsBetweenSpawns)
+        if (secondsSinceLastSpawn >= secondsBetweenSpawns && isActive)
         {
             Instantiate(smallEnemyPrefab, transform.position, transform.rotation);
             secondsSinceLastSpawn = 0.0f;

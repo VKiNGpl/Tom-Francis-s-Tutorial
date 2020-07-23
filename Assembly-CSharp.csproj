@@ -68,6 +68,7 @@
     <Compile Include="Assets\EnemyBehavior.cs" />
     <Compile Include="Assets\EnemySpawnerBehavior.cs" />
     <Compile Include="Assets\ExplosionBehavior.cs" />
+    <Compile Include="Assets\GuardBehavior.cs" />
     <Compile Include="Assets\HealthBarBehavior.cs" />
     <Compile Include="Assets\HealthSystem.cs" />
     <Compile Include="Assets\PlayerBehavior.cs" />
